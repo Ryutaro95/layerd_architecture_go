@@ -14,6 +14,7 @@ func NewUserRepository() repository.UserRepository {
 }
 
 func (ur *userRepository) Create(u *model.User) *model.User {
+	// 本来はデータを永続化するが、簡略化のため一旦標準出力
 	fmt.Printf("ユーザー名: %v %v\nニックネーム: %v\n年齢: %v\n", u.FirstName, u.LastName, u.NickName, u.Age)
 	return u
 }
