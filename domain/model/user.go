@@ -1,6 +1,5 @@
 package model
 
-// domain層が外部パッケージに依存しているってどうなん？
 import (
 	"fmt"
 
