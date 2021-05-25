@@ -20,7 +20,7 @@ func (ur *userRepository) Create(u *model.User) *model.User {
 }
 
 func (ur *userRepository) GetByID(userID int) (*model.User, error) {
-	// モックのユーザーおジェクトを返す
+	// モックのユーザーオブジェクトを返す
 	user := &model.User{
 		FirstName: "テスト",
 		LastName:  "ユーザー",
