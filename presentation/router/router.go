@@ -7,6 +7,7 @@ import (
 
 func InitRouting(e *echo.Echo) {
 
-	userHandler := di.InjectUserHandler()
+	userHandler := di.InjectUser()
 	e.POST("/users", userHandler.Post())
+	e.GET("/user/:id", userHandler.GetByID())
 }

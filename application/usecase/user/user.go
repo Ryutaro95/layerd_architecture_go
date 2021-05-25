@@ -7,6 +7,7 @@ import (
 
 type UserUsecase interface {
 	Create(firstname, lastname, nickname string, age int) (*model.User, error)
+	GetByID(userID int) (*model.User, error)
 }
 
 type userUsecase struct {
@@ -25,4 +26,13 @@ func (uu *userUsecase) Create(firstname, lastname, nickname string, age int) (*m
 
 	createdUser := uu.userRepo.Create(user)
 	return createdUser, nil
+}
+
+func (uu *userUsecase) GetByID(userID int) (*model.User, error) {
+	user, err := uu.userRepo.GetByID(userID)
+	if err != nil {
+		return nil, err
+	}
+
+	return user, nil
 }

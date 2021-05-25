@@ -18,3 +18,14 @@ func (ur *userRepository) Create(u *model.User) *model.User {
 	fmt.Printf("ユーザー名: %v %v\nニックネーム: %v\n年齢: %v\n", u.FirstName, u.LastName, u.NickName, u.Age)
 	return u
 }
+
+func (ur *userRepository) GetByID(userID int) (*model.User, error) {
+	// モックのユーザーおジェクトを返す
+	user := &model.User{
+		FirstName: "テスト",
+		LastName:  "ユーザー",
+		NickName:  "test",
+		Age:       33,
+	}
+	return user, nil
+}
