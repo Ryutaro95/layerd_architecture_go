@@ -8,6 +8,7 @@ import (
 type UserUsecase interface {
 	Create(firstname, lastname, nickname string, age int) (*model.User, error)
 	GetByID(userID int) (*model.User, error)
+	GetAll() (*model.Users, error)
 }
 
 type userUsecase struct {
@@ -35,4 +36,13 @@ func (uu *userUsecase) GetByID(userID int) (*model.User, error) {
 	}
 
 	return user, nil
+}
+
+func (uu *userUsecase) GetAll() (*model.Users, error) {
+	users, err := uu.userRepo.GetAll()
+	if err != nil {
+		return nil, err
+	}
+
+	return users, nil
 }

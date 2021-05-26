@@ -14,6 +14,8 @@ type User struct {
 	Age       int
 }
 
+type Users []User
+
 /* バリデーション
 - first_name: 必須, 文字列の長さ 1 ~ 10
 - last_name: 必須, 文字列の長さ 1 ~ 10

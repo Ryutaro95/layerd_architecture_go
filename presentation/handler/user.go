@@ -10,6 +10,7 @@ import (
 type UserHandler interface {
 	Post() echo.HandlerFunc
 	GetByID() echo.HandlerFunc
+	GetAll() echo.HandlerFunc
 }
 
 type userHandler struct {
@@ -76,4 +77,15 @@ func (uh *userHandler) GetByID() echo.HandlerFunc {
 		return c.JSON(http.StatusOK, res)
 	}
 
+}
+
+func (uh *userHandler) GetAll() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		users, err := uh.userUsecase.GetAll()
+		if err != nil {
+			return c.JSON(http.StatusBadRequest, err.Error())
+		}
+
+		return c.JSON(http.StatusOK, users)
+	}
 }

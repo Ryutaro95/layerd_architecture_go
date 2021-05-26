@@ -10,4 +10,5 @@ func InitRouting(e *echo.Echo) {
 	userHandler := di.InjectUser()
 	e.POST("/users", userHandler.Post())
 	e.GET("/user/:id", userHandler.GetByID())
+	e.GET("/users", userHandler.GetAll())
 }
